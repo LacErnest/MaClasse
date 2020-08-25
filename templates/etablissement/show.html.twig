@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etablissement{% endblock %}
+
+{% block body %}
+    <h1>Etablissement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ etablissement.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ etablissement.code }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ etablissement.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ etablissement.createdAt ? etablissement.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ etablissement.updatedAt ? etablissement.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ etablissement.status ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('etablissement_index') }}">back to list</a>
+
+    <a href="{{ path('etablissement_edit', {'id': etablissement.id}) }}">edit</a>
+
+    {{ include('etablissement/_delete_form.html.twig') }}
+{% endblock %}
